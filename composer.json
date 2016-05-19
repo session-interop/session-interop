@@ -1,0 +1,22 @@
+{
+    "name": "session-interop/session-interop",
+    "description": "This package contains the session interface for session interopability. It tries to standardize features in session object",
+    "keywords": ["session", "sessioninterface", "php", "php session", "interop", "session-interop", "session-interface", "interoperability"],
+    "homepage": "https://github.com/Ngob/session-interop",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Benoit Ngo",
+            "email": "b.ngo@thecodingmachine.com",
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Interop\\Session\\": "src/Interop/Session/"
+        }
+    }
+}
