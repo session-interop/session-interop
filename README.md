@@ -12,7 +12,7 @@ We adhere to the spirit and ideals of PHP-FIG, and hope this project will pave t
 You can install this package through Composer:
 
 ```json
-composer require container-interop/container-interop
+composer require session-interop/session-interop
 ```
 The packages adheres to the [SemVer](http://semver.org/) specification, and there will be full backward compatibility between minor versions.
 
@@ -27,4 +27,3 @@ Describes the interface of a Session that exposes methods to read and write its 
 ### Proposals
 
 View [proposals](https://github.com/Ngob/session-interop/issues).
-
