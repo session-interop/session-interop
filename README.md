@@ -23,7 +23,32 @@ The packages adheres to the [SemVer](http://semver.org/) specification, and ther
 [`SessionInterface`](src/Interop/Session/SessionInterface.php).
 Describes the interface of a Session that exposes methods to read and write its entries.
 
+### Usage
 
-### Proposals
+Writing an user service that use the session:
 
-View [proposals](https://github.com/Ngob/session-interop/issues).
+```php
+use Interop\Session\SessionInterface;
+class UserService {
+      public function isConnected(SessionInterface $session) {
+      	     if ($session->has("userId")) {
+	     	return true;
+	     }
+	     return false;
+      }
+      public function login(SessionInterface $session, $userId) {
+      	     if ($this->isConnected()) {
+	     	return false;
+	     }
+	     $session->set("userId", $userId);
+	     return true;
+      }
+      public function logoff(SessionInterface $session) {
+      	     if ($this->isConnected()) {
+	     	$session->remove("userId");
+		return true;
+	     }
+	     return false;
+      }
+}
+```
