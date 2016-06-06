@@ -52,3 +52,5 @@ class UserService {
       }
 }
 ```
+
+This way, the user service does not rely on a specific implementation, so you can use any session object that implements SessionInterface.
