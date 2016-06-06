@@ -13,4 +13,5 @@ interface SessionInterface {
 
     public function has($key);
 
+    public function remove($key);
 }
