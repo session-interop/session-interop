@@ -31,22 +31,22 @@ Writing an user service that use the session:
 use Interop\Session\SessionInterface;
 class UserService {
       public function isConnected(SessionInterface $session) {
-      	     if ($session->has("userId")) {
+       if ($session->get("userId")) {
 	     	return true;
 	     }
 	     return false;
       }
       public function login(SessionInterface $session, $userId) {
-      	     if ($this->isConnected($session)) {
+       if ($this->isConnected($session)) {
 	     	return false;
 	     }
 	     $session->set("userId", $userId);
 	     return true;
       }
       public function logoff(SessionInterface $session) {
-      	     if ($this->isConnected($session)) {
-	     	$session->remove("userId");
-		return true;
+      if ($this->isConnected($session)) {
+	     	  $session->set("userId", null);
+		      return true;
 	     }
 	     return false;
       }
@@ -59,4 +59,4 @@ This way, the user service does not rely on a specific implementation, so you ca
 
 [`ArraySession`](https://github.com/session-interop/utils.session)
 
-A basic implementation of the interface. 
+A basic implementation of the interface.
