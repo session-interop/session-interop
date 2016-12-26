@@ -1,6 +1,7 @@
 # Session Interoperability
 
 *session-interop* tries to identify and standardize features in *session* objet to achieve interoperability between PHP package. It does not handle session creation.
+This interface is designed to be immutable.
 Through discussions and trials, we try to create a standard, made of common interfaces but also recommendations.
 
 If PHP projects that provide session object implementation begin to adopt these common standards, then PHP applications and projects that use session can depend on the common interfaces instead of specific implementations. This facilitates a high-level of interoperability and flexibility that allows users to consume any session implementation that can be adapted to these interfaces.
@@ -45,7 +46,7 @@ class UserService {
       }
       public function logoff(SessionInterface $session) {
       if ($this->isConnected($session)) {
-	     	  $session->set("userId", null);
+	     	  $session->with("userId", null);
 		      return true;
 	     }
 	     return false;
