@@ -5,6 +5,9 @@
 
 namespace Interop\Session;
 
+/***
+* Due to his nature, session are not immutable.
+***/
 interface SessionInterface {
   /**
    * This function return the element associated with $key.
@@ -25,5 +28,5 @@ interface SessionInterface {
      * @param mixed $data : The data to set
      * @return SessionInterface
     */
-    public function with(string $key, ?string $data): SessionInterface;
+    public function set(string $key, ?string $data): void;
 }
