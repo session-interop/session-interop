@@ -46,7 +46,7 @@ class UserService {
       }
       public function logoff(SessionInterface $session) {
       if ($this->isConnected($session)) {
-	     	  $session->with("userId", null);
+	     	  $session->set("userId", null);
 		      return true;
 	     }
 	     return false;
