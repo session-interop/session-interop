@@ -19,6 +19,8 @@ The packages adheres to the [SemVer](http://semver.org/) specification, and ther
 
 ## Standards
 
+* A `null` value is a removed or an unset session's value. That mean removed values, unset values, null values must be used the same way.
+
 ### Available
 
 [`SessionInterface`](src/Interop/Session/SessionInterface.php).
@@ -31,20 +33,20 @@ Writing an user service that use the session:
 ```php
 use Interop\Session\SessionInterface;
 class UserService {
-      public function isConnected(SessionInterface $session) {
+      static public function isConnected(SessionInterface $session) {
        if ($session->get("userId")) {
 	     	return true;
 	     }
 	     return false;
       }
-      public function login(SessionInterface $session, $userId) {
+      static public function login(SessionInterface $session, $userId) {
        if ($this->isConnected($session)) {
 	     	return false;
 	     }
 	     $session->set("userId", $userId);
 	     return true;
       }
-      public function logoff(SessionInterface $session) {
+      static public function logoff(SessionInterface $session) {
       if ($this->isConnected($session)) {
 	     	  $session->set("userId", null);
 		      return true;
@@ -60,4 +62,4 @@ This way, the user service does not rely on a specific implementation, so you ca
 
 [`ArraySession`](https://github.com/session-interop/utils.session)
 
-A basic implementation of the interface.
+Basics implementations of the interface.

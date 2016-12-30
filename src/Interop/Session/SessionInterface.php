@@ -20,7 +20,6 @@ interface SessionInterface {
    public function get(string $key): ?string;
 
     /**
-     * This function should return a SessionInterface object with $data setted at $key
      *
      * This function should remove the value if $data = null
      *
